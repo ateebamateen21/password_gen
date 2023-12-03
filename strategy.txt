@@ -1,0 +1,45 @@
+//How to make a password generator in React
+
+[Make Interface using react component]
+
+--(It's a simple app, you can directly make it in the App.jsx (or maybe create an other component if you want))
+
+-- Make a div container with three subcontainers  
+
+-- First sub-container> heading , second> input field with button, third> One range input + two checkboxes (one for numbers and other for characters) - to ask the user whether to add chars or nums to password or not?
+
+--That's it!
+
+[Do styling (!your choice)]
+
+--Jo dil kare karo (Do what you want!)
+
+[Manage states of elements]
+
+-- Following elements will have their states managed by useState() hook. 
+-Password input field
+
+
+
+
+--ONE STRATEGY I DIDN'T FINISH OR ADD:
+(Sorry should've posted in the repo.)
+  const generatePassword = useCallback(()=>{
+    let charCodes = [];
+    if(includeNumbers){
+      charCodes = charCodes.concat(numberCodes);
+    }
+    if(includeCharacters){
+      charCodes = charCodes.concat(characterCodes);
+    }
+    const passwordCharacters = [];
+    for(let i = 0; i < passwordLength; i++){
+      const characterCode = charCodes[Math.floor(Math.random() * charCodes.length)];
+      passwordCharacters.push(String.fromCharCode(characterCode));
+    }
+    setPassword(passwordCharacters.join(''));
+
+  },[includeNumbers, includeCharacters, passwordLength, setPassword])
+
+
+
